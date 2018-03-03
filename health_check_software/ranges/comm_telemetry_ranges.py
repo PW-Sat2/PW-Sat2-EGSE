@@ -1,0 +1,20 @@
+receiver_telemetry_ranges = {'LastReceived Doppler': [0, 100],
+                             'LastReceived RSSI': [0, 100],
+                             'Now Doppler': [1300, 1400],
+                             'Now Oscillator Temperature': [2800, 3200],
+                             'Now Power Amp Temperature': [3000, 3200],
+                             'Now Power Supply Voltage': [1400, 1500],
+                             'Now RSSI': [0, 100],
+                             'Now RX current': [1600, 2000],
+                             'Uptime': [0, 80000000]}
+
+transmitter_telemetry_ranges = {'Beacon': [0, 10],
+                                'Bitrate': [1, 1],
+                                'Idle state': [0, 0],
+                                'LastTransmitted Power Amp Temperature': [0, 0],
+                                'LastTransmitted RF Forward power': [0, 0],
+                                'LastTransmitted RF Reflected power': [0, 0],
+                                'LastTransmitted TX Current': [0, 0],
+                                'Now RF Forward power': [0, 5],
+                                'Now TX Current': [0, 10],
+                                'Uptime': [0, 80000000]}
