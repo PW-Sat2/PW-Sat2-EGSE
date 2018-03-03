@@ -1,0 +1,4 @@
+[submodule "PWSat2OBC"]
+	path = PWSat2OBC
+	url = https://github.com/PW-Sat2/PWSat2OBC.git
+	branch = more-python
