@@ -61,6 +61,11 @@ class Reporter(object):
             for key, value in sorted(item.result.iteritems()):
                 results += self.text_result(value) + '\n'
             return results
+        if isinstance(item.result, type(list())):
+            results = '\n'
+            for value in item.result:
+                results += self.text_result(value[1]) + '\n'
+            return results
         else:
             return self.text_result(item.result)
 
@@ -71,6 +76,12 @@ class Reporter(object):
             name += '\n'
             for key, value in sorted(item.result.iteritems()):
                 name += key + '\n'
+            return name
+        elif isinstance(item.result, type(list())):
+            name = item.name
+            name += '\n'
+            for item_data in item.result:
+                name += item_data[0] + '\n'
             return name
         else:
             return item.name + '\n'

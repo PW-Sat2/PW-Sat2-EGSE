@@ -18,7 +18,7 @@ class TestSolarCells(SingleTest):
         self.default_description = "Check voltage and current on solar cells. Additionally get currents of photodiodes."
 
     def test_script(self):
-        temp_data = ""
+        self.data = []
         axis = raw_input("Type name of the axis: ")
         print("Press Ctrl-C to finish")
 
@@ -27,7 +27,7 @@ class TestSolarCells(SingleTest):
         try:
             format_string = "{0:<5} [V] | {1:<5} [A] | {2:<5} [A] || {3:<5} [V] | {4:<5} [A] | {5:<5} [A] || {6:<5} [V] | {7:<5} [A] | {8:<5} [A] || {9:<5} [V] | {10:<5} [A] | {11:<5} [A]".format("PV Xp", "PV Xp", "Ph Xp", "PV Xn", "PV Xn", "Ph Xn", "PV Yp", "PV Yp", "Ph Yp", "PV Yn", "PV Yn", "Ph Yn")
             self.log.debug(format_string)
-            temp_data += format_string + '\r'
+            self.data.append(("", ResultData(format_string, "", None)))
             while True:
                 self.obc.jump_to_time(0)
                 payload_response_data = self.obc.payload_photodiodes()
@@ -39,7 +39,7 @@ class TestSolarCells(SingleTest):
                     converted_eps_data['MPPT_Y_PLUS.SOL_VOLT'].converted, converted_eps_data['MPPT_Y_PLUS.SOL_CURR'].converted, payload_response_data['Yn'],
                     converted_eps_data['MPPT_Y_MINUS.SOL_VOLT'].converted, converted_eps_data['MPPT_Y_MINUS.SOL_CURR'].converted, payload_response_data['Yp'])
                 self.log.debug(format_string)
-                temp_data += format_string + '\r'
+                self.data.append((time.time(), ResultData(format_string, "", None)))
                 time.sleep(0.5)
         except:
             res = self.obc.disable_lcl(5)
@@ -48,6 +48,5 @@ class TestSolarCells(SingleTest):
             while True:
                 result = raw_input("Result of the test - type pass or fail: ")
                 if result == 'pass' or result == 'fail':
-                    self.result = TestCompare.assert_equal(result, 'pass')
-                    self.data = ResultData(temp_data, None, None)
+                    self.result = [(axis, TestCompare.assert_equal(result, 'pass'))]
                     break

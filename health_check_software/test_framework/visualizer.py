@@ -35,6 +35,13 @@ class Visualizer(object):
             for key, value in sorted(item.result.iteritems()):
                 name += ' |-- ' + key + '\n'
             return name
+        elif isinstance(item.data, type(list())):
+            name = '[ ] '
+            name += colored(item.name, 'blue', 'on_white')
+            name += '\n'
+            for value in item.result:
+                name += ' |-- ' + value[0] + '\n'
+            return name
         else:
             return item.name + '\n'
 
@@ -46,6 +53,11 @@ class Visualizer(object):
             for key, value in sorted(item.result.iteritems()):
                 results += Visualizer.colour_result(value) + '\n'
             return results
+        elif isinstance(item.result, type(list())):
+            results = '\n'
+            for value in item.result:
+                results += Visualizer.colour_result(value[1]) + '\n'
+            return results   
         else:
             return Visualizer.colour_result(item.result)
 
@@ -56,6 +68,11 @@ class Visualizer(object):
             results = '\n'
             for key, value in sorted(item.data.iteritems()):
                 results += "{}\n".format(value.raw)
+            return results
+        elif isinstance(item.data, type(list())):
+            results = '\n'
+            for value in item.data:
+                results += "{}\n".format(value[1].raw)
             return results
         else:
             return "{}\n".format(item.data.raw)
@@ -81,6 +98,24 @@ class Visualizer(object):
 
                 results += "{} {}\n".format(converted, unit)
             return results
+        elif isinstance(item.data, type(list())):
+            results = '\n'
+            for value in item.data:
+                try:
+                    unit = value[1].unit
+                    if value[1].unit == None:
+                        unit = ""
+                except:
+                    unit = ""
+
+                try:
+                    converted = "{:.2f}".format(value[1].converted)
+
+                except:
+                    converted = value[1].converted
+
+                results += "{} {}\n".format(converted, unit) 
+
         else:
             try:
                 unit = item.data.unit
