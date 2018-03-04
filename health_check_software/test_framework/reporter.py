@@ -15,11 +15,7 @@ def raw_input(text):
     return sys.stdin.readline().strip()
 
 
-class Report(object):
-    def __init__(self, path, name):
-        self.path = path
-        self.name = name
-
+class Reporter(object):
     def to_markdown_table(self, pt):
         """
         Print a pretty table as a markdown table
@@ -87,8 +83,8 @@ class Report(object):
         self.members = raw_input("Members: ")
 
 
-    def generate(self, results_table):
-        self.file = open(self.path + '/' + self.name + '.md', 'a')
+    def generate(self, results_table, path, name):
+        self.file = open(path + '/' + name + '.md', 'a')
         self.file.write('# {}\n\n'.format(self.title))
 
         self.file.write('* Date:\n{}\n'.format(strftime("%Y-%m-%d %H:%M:%S", gmtime())))
@@ -105,7 +101,8 @@ class Report(object):
             self.file.write('\n\n')
 
         self.file.close()
+        self.generate_pdf(path, name)
 
-    def generate_pdf(self):
-        output = pypandoc.convert_file('{}/{}.md'.format(self.path, self.name), 'pdf', outputfile="{}/{}.pdf".format(self.path, self.name), format='markdown_github')
+    def generate_pdf(self, path, name):
+        output = pypandoc.convert_file('{}/{}.md'.format(path, name), 'pdf', outputfile="{}/{}.pdf".format(path, name), format='markdown_github')
         print(output)

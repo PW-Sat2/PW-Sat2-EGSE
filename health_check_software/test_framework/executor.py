@@ -94,7 +94,7 @@ class Executor(object):
 
 
     def run_range(self, start, stop):
-        num = 0
+        num = start
         while num != stop + 1:
             self.run_single(num)
             if num != stop:

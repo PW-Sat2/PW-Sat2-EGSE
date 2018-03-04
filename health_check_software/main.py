@@ -10,6 +10,7 @@ from helpers.gpio import DummyGPIO
 from app.time_guard import TimeGuard
 import threading
 from test_framework.executor import Executor
+from test_framework.reporter import Reporter
 
 import time
 
@@ -99,49 +100,16 @@ stop_event = threading.Event()
 time_guard = TimeGuard(obc, lock)
 time_guard_thread = threading.Thread(target=time_guard.run, args=())
 
-to_do = [TestPing("Test Ping", "Test of ping command"),
-         TestTimeBasic("Test Time Basic", "Test of time", time=datetime.timedelta(seconds=60)),
-         TestRTCRange("Test RTC Range", "Test of RTC value", max_time=946784295000),
-         TestCOMMReceiver("Test COMM Receiver", "Test of COMM Receiver Telemetry", ranges=receiver_telemetry_ranges),
-         TestCOMMTransmitter(None, "Dupa", ranges=transmitter_telemetry_ranges),
-         TestEPSA(None, None, ranges=eps_a_telemetry_ranges),
-         TestEPSB(None, None, ranges=eps_b_telemetry_ranges),
-         TestFRAM(),
-         TestFLASH(),
-         TestPhoto(None, None, path="C:/Users/begreen/Desktop/TestPhoto"),
-         TestGyro(None, None, ranges=gyro_ranges),
-         TestDuration(),
-         TestCompileInfo(),
-         TestMcuTemperature(),
-         TestLCL_ANTS(),
-         TestLCL_SENS(),
-         TestLCL_CAMwing(),
-         TestLCL_CAMnadir(),
-         TestLCL_SunS(),
-         TestLCL_iMTQ(),
-         TestANTSTelemetry(),
-         TestANTSStatusPrimary(),
-         TestANTSStatusSecondary(),
-         TestListFiles(),
-         TestIMTQSelfTest(),
-         TestExperimentalSunSBasic(),
-         TestExperimentalSunSValues(),
-         TestLCL_RadFET(),
-         TestPayload()]
 
 executor = Executor(obc, lock)
-executor.load_tests_list(to_do)
+reporter = Reporter()
 
-#executor.show_test_list()
-#executor.run_single(0)
-#executor.run_single(1)
-#executor.show_results()
-#executor.run_range(0, 1)
-#executor.run_all()
-#executor.show_results()
+def generate_report(path, name):
+    reporter.generate(executor.results_table, path, name)
+
 
 cfg = Config()
-shell = InteractiveShellEmbed(config=cfg, user_ns={'time_guard_thread' : time_guard_thread, 'obc': obc, 'end' : time_guard.stop, 'executor' : executor}, banner2='PW-Sat2 Health Check')
+shell = InteractiveShellEmbed(config=cfg, user_ns={'describe' : reporter.test_description, 'generate_report' : generate_report, 'time_guard_thread' : time_guard_thread, 'obc': obc, 'end' : time_guard.stop, 'executor' : executor}, banner2='PW-Sat2 Health Check')
 shell.prompts = MyPrompt(shell)
-#shell.run_code('time_guard_thread.start()')
+shell.run_code('time_guard_thread.start()')
 shell()

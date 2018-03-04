@@ -7,6 +7,7 @@ from test_framework.compare import TestCompare
 from helpers.unit_converters.convert_dict import *
 from test_framework.executor import raw_input
 
+
 try:
     from emulator.beacon_parser.resistance_sensors import *
 except ImportError:
