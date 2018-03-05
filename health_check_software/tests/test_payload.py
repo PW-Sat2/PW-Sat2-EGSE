@@ -38,9 +38,9 @@ class TestPayload(SingleTest):
     def test_script(self):
         self.result = {}
         self.data = {}
-        ret = self.obc.enable_lcl(2)
+        ret = self.obc.enable_lcl(5)
         self.log.debug("OBC response LCL enable: {}".format(ret))
-        time.sleep(5)
+        time.sleep(2)
 
         res = self.obc.payload_whoami()
         self.log.debug("OBC response - payload_whoami: {}".format(res))
@@ -153,3 +153,5 @@ class TestPayload(SingleTest):
         self.log.debug("OBC response - payload_radfet_off: {}".format(res))
         self.result['Radfet Off Status'] = TestCompare.assert_equal(res['Status'], 224)
         self.data['Radfet Off Status'] = ResultData(res['Status'], None, None)
+
+        self.obc.disable_lcl(5)

@@ -23,6 +23,7 @@ class TestSolarCells(SingleTest):
         print("Press Ctrl-C to finish")
 
         res = self.obc.enable_lcl(5)
+        time.sleep(3)
         self.log.debug("OBC response: PLD LCL on {}".format(res))
         try:
             format_string = "{0:<5} [V] | {1:<5} [A] | {2:<5} [A] || {3:<5} [V] | {4:<5} [A] | {5:<5} [A] || {6:<5} [V] | {7:<5} [A] | {8:<5} [A] || {9:<5} [V] | {10:<5} [A] | {11:<5} [A]".format("PV Xp", "PV Xp", "Ph Xp", "PV Xn", "PV Xn", "Ph Xn", "PV Yp", "PV Yp", "Ph Yp", "PV Yn", "PV Yn", "Ph Yn")
