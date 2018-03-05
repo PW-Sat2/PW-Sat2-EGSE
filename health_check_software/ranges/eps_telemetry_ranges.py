@@ -1,8 +1,8 @@
 import datetime
 
-eps_a_telemetry_ranges = {'BATC.CHRG_CURR': [0, 1.3],
+eps_a_telemetry_ranges = {'BATC.CHRG_CURR': [0, 0.01],
                         'BATC.DCHRG_CURR': [0, 1.3],
-                        'BATC.STATE': [0, 0], # ?
+                        'BATC.STATE': [3, 3], # ?
                         'BATC.TEMP': [15, 25],
                         'BATC.VOLT_A': [6.9, 8],
                         'BP.TEMP_A': [15, 25],
@@ -26,17 +26,17 @@ eps_a_telemetry_ranges = {'BATC.CHRG_CURR': [0, 1.3],
                         'MPPT_X.SOL_CURR': [0, 0.6],
                         'MPPT_X.SOL_OUT_VOLT': [0, 8.0],
                         'MPPT_X.SOL_VOLT': [0, 5.5],
-                        'MPPT_X.STATE': [0, 0],
+                        'MPPT_X.STATE': [5, 5],
                         'MPPT_X.TEMP': [15, 30],
                         'MPPT_Y_MINUS.SOL_CURR': [0, 0.6],
                         'MPPT_Y_MINUS.SOL_OUT_VOLT': [0, 8.0],
                         'MPPT_Y_MINUS.SOL_VOLT': [0, 14],
-                        'MPPT_Y_MINUS.STATE': [0, 0],
+                        'MPPT_Y_MINUS.STATE': [5, 5],
                         'MPPT_Y_MINUS.TEMP': [15, 30],
                         'MPPT_Y_PLUS.SOL_CURR': [0, 0.6],
                         'MPPT_Y_PLUS.SOL_OUT_VOLT': [0, 8.0],
                         'MPPT_Y_PLUS.SOL_VOLT': [0, 14],
-                        'MPPT_Y_PLUS.STATE': [0, 0],
+                        'MPPT_Y_PLUS.STATE': [5, 5],
                         'MPPT_Y_PLUS.TEMP': [15, 30]}
 
 eps_b_telemetry_ranges = {'BP.TEMP_C' : [15, 25],

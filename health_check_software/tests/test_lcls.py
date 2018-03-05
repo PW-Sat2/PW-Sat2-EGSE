@@ -57,8 +57,7 @@ class TestLCL_iMTQ(SingleTest):
         self.result, self.data = TestCompare.assert_dict_differentially(response_data_previous, response_data_after,
             [('BATC.DCHRG_CURR', "<", 0.15),
              ('BATC.VOLT_A', ">", -0.2),
-             ('DISTR.CURR_5V', "<>", 0.03, 0.15),
-             ('DISTR.CURR_3V3', "<>", 0.00, 0.05),
+             ('DISTR.CURR_5V', "<>", 0.01, 0.10),
              ('DISTR.LCL_STATE', "=", 2**(7-1))])
 
 

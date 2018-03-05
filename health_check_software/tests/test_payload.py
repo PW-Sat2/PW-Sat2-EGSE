@@ -62,31 +62,31 @@ class TestPayload(SingleTest):
 
         self.log.debug("OBC response - payload_temps: {}".format(res))
 
-        self.result['TEMP CAM Nadir'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['CAM Nadir']), 30)
+        self.result['TEMP CAM Nadir'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['CAM Nadir']), 30)
         self.data['TEMP CAM Nadir'] = ResultData(res['CAM Nadir'], self._rtd_to_centigrades(res['CAM Nadir']), 'C')
 
-        self.result['TEMP CAM Wing'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['CAM Wing']), 30)
+        self.result['TEMP CAM Wing'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['CAM Wing']), 30)
         self.data['TEMP CAM Wing'] = ResultData(res['CAM Wing'], self._rtd_to_centigrades(res['CAM Wing']), 'C')
 
-        self.result['TEMP SADS'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['SADS']), 25)
+        self.result['TEMP SADS'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['SADS']), 25)
         self.data['TEMP SADS'] = ResultData(res['SADS'], self._rtd_to_centigrades(res['SADS']), 'C')
 
-        self.result['TEMP Sail'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['Sail']), 25)
+        self.result['TEMP Sail'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['Sail']), 25)
         self.data['TEMP Sail'] = ResultData(res['Sail'], self._rtd_to_centigrades(res['Sail']), 'C')
 
-        self.result['TEMP Xn'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['Xn']), 25)
+        self.result['TEMP Xn'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['Xn']), 25)
         self.data['TEMP Xn'] = ResultData(res['Xn'], self._rtd_to_centigrades(res['Xn']), 'C')
 
-        self.result['TEMP Xp'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['Xp']), 25)
+        self.result['TEMP Xp'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['Xp']), 25)
         self.data['TEMP Xp'] = ResultData(res['Xp'], self._rtd_to_centigrades(res['Xp']), 'C')
 
-        self.result['TEMP Yn'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['Yn']), 25)
+        self.result['TEMP Yn'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['Yn']), 25)
         self.data['TEMP Yn'] = ResultData(res['Yn'], self._rtd_to_centigrades(res['Yn']), 'C')
 
-        self.result['TEMP Yp'] = TestCompare.assert_between_closed_interval(18, self._rtd_to_centigrades(res['Yp']), 25)
+        self.result['TEMP Yp'] = TestCompare.assert_between_closed_interval(15, self._rtd_to_centigrades(res['Yp']), 25)
         self.data['TEMP Yp'] = ResultData(res['Yp'], self._rtd_to_centigrades(res['Yp']), 'C')
 
-        self.result['TEMP Supply'] = TestCompare.assert_between_closed_interval(18, self._lmt87_to_centigrades(res['Supply']), 25)
+        self.result['TEMP Supply'] = TestCompare.assert_between_closed_interval(15, self._lmt87_to_centigrades(res['Supply']), 25)
         self.data['TEMP Supply'] = ResultData(res['Supply'], self._lmt87_to_centigrades(res['Supply']), 'C')
 
 

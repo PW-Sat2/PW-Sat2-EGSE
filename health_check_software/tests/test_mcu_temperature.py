@@ -14,5 +14,5 @@ class TestMcuTemperature(SingleTest):
         result_converted = self.obc.mcu_temp()
         result_raw = self.obc.mcu_temp_raw()
         self.log.debug("OBC response: raw {}; converted {}".format(result_raw, result_converted))
-        self.result = TestCompare.assert_between_closed_interval(18, result_converted['Temp'], 30)
+        self.result = TestCompare.assert_between_closed_interval(14, result_converted['Temp'], 30)
         self.data = ResultData(result_raw['Temperature RAW'], result_converted['Temp'], "C")

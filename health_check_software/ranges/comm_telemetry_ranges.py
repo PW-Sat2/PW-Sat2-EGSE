@@ -1,11 +1,11 @@
 receiver_telemetry_ranges = {'LastReceived Doppler': [0, 100],
                              'LastReceived RSSI': [0, 100],
-                             'Now Doppler': [1300, 1400],
-                             'Now Oscillator Temperature': [2800, 3200],
-                             'Now Power Amp Temperature': [3000, 3200],
-                             'Now Power Supply Voltage': [1400, 1500],
-                             'Now RSSI': [0, 100],
-                             'Now RX current': [1600, 2000],
+                             'Now Doppler': [1000, 1500],
+                             'Now Oscillator Temperature': [2700, 3300],
+                             'Now Power Amp Temperature': [2700, 3300],
+                             'Now Power Supply Voltage': [1400, 1700],
+                             'Now RSSI': [0, 1500],
+                             'Now RX current': [1500, 2000],
                              'Uptime': [0, 80000000]}
 
 transmitter_telemetry_ranges = {'Beacon': [0, 10],
