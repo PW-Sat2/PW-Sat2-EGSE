@@ -34,10 +34,7 @@ tests_queue_vibration = [# OBC communication test
                          TestLCL_SENS(),
                          
                          # Critical test of Solar Cells
-                         TestSolarCells("TestSolarCells - Xp"),
-                         TestSolarCells("TestSolarCells - Xn"),
-                         TestSolarCells("TestSolarCells - Yp"),
-                         TestSolarCells("TestSolarCells - Yn"),
+                         TestSolarCells(None),
                          
                          # Critical test of COMM
                          TestCOMMReceiver(None, None, ranges=receiver_telemetry_ranges),
@@ -74,7 +71,7 @@ tests_queue_vibration = [# OBC communication test
                          TestExperimentalSunSValues(),
 
                          # Camera photo test
-                         TestPhoto(None, None, path="D:/Documents/GitHub/PW-Sat2-EGSE/health_check_software/test_outputs/X_axis"),
+                         TestPhoto(None, None, path="D:/Documents/GitHub/PW-Sat2-EGSE/health_check_software/test_outputs/Z_axis/foto"),
 
                          # Critical EPS telemetry
                          TestEPSA(None, None, ranges=eps_a_telemetry_ranges),
