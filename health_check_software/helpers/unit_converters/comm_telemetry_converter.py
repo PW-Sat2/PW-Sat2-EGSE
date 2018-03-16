@@ -20,7 +20,7 @@ receiver_telemetry_conversion = {'LastReceived Doppler': DopplerOffset,
                                  'Uptime': TimeFromSeconds}
 
 
-BitrateMappedValue = MappedValue.with_values({0: '1200', 1: '2400', 2: '4800', 3: '9600'})
+BitrateMappedValue = MappedValue.with_values({1: '1200', 2: '2400', 3: '4800', 4: '9600'})
 BitrateMappedValue.units = 'bps'
 
 transmitter_telemetry_conversion = {'Beacon': MappedValue.with_values({0: 'Off', 1: 'On'}),

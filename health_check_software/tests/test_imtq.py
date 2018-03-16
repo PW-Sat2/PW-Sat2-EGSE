@@ -19,7 +19,7 @@ class TestIMTQSelfTest(SingleTest):
         self.log.debug("OBC response LCL enable: {}".format(ret))
         time.sleep(5)
 
-        test_result = self.obc.perform_self_test()
+        test_result = self.obc.perform_self_test(0)
         self.log.debug("OBC response: {}".format(test_result))
 
         ret = self.obc.disable_lcl(7)

@@ -151,7 +151,7 @@ class TestPayload(SingleTest):
 
         res = self.obc.payload_radfet_off()
         self.log.debug("OBC response - payload_radfet_off: {}".format(res))
-        self.result['Radfet Off Status'] = TestCompare.assert_equal(res['Status'], 224)
+        self.result['Radfet Off Status'] = TestCompare.assert_equal(res['Status'], 32)
         self.data['Radfet Off Status'] = ResultData(res['Status'], None, None)
 
         self.obc.disable_lcl(5)

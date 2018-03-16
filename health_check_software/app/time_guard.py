@@ -35,5 +35,5 @@ class TimeGuard(object):
                 else:
                     self.log.error('Time set not correctly')
                     self.log.error(debug_response)
-            time.sleep(1)
+            time.sleep(10)
         return

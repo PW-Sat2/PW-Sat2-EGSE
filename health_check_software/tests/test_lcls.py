@@ -31,7 +31,7 @@ class TestLCL_ANTS(SingleTest):
         self.result, self.data = TestCompare.assert_dict_differentially(response_data_previous, response_data_after,
             [('BATC.DCHRG_CURR', "<", 0.05),
              ('BATC.VOLT_A', ">", -0.2),
-             ('DISTR.CURR_5V', "<>", 0.015, 0.05),
+             ('DISTR.CURR_5V', "<>", 0.005, 0.02),
              ('DISTR.LCL_STATE', "=", 2**(6-1))])
 
 

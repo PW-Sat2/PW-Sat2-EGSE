@@ -71,7 +71,7 @@ tests_queue_vibration = [# OBC communication test
                          TestExperimentalSunSValues(),
 
                          # Camera photo test
-                         TestPhoto(None, None, path="D:/Documents/GitHub/PW-Sat2-EGSE/health_check_software/test_outputs/Z_axis/foto"),
+                         TestPhoto(None, None, path="D:/Documents/GitHub/PW-Sat2-EGSE/health_check_software/test_outputs/2018-03-16_health_check_after_Y_axis_vibration_test/foto"),
 
                          # Critical EPS telemetry
                          TestEPSA(None, None, ranges=eps_a_telemetry_ranges),
