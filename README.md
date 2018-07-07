@@ -179,7 +179,7 @@ Solar panel simulator in the box comprises solely of diodes strings - for each c
 
 The repository contains WaveForms workspace file `(*.dwf3work)` with configured power supply for current probe and calibration formula apploed in WaveForms scope view (sensor's output voltage to current).
 
-## Practival information
+## Practical information
 It's good idea to adjust actual offset voltage (at zero current) because it strongly depends on ambient temperature.
 Offset voltage is highlighted in yellow:
 
