@@ -75,7 +75,7 @@ TestExperimentalSunSBasic(),
 TestExperimentalSunSValues(),
 
 # Camera photo test
-TestPhoto(None, None, path="D:/Documents/GitHub/PW-Sat2-EGSE/health_check_software/test_outputs/2018-03-16_health_check_after_Y_axis_vibration_test/foto"),
+TestPhoto(None, None, path="D:/Documents/GitHub/PW-Sat2-EGSE/health_check_software/test_outputs/2018-07-24_CBK_Before_Flight/foto"),
 
 # Critical EPS telemetry
 TestEPSA(None, None, ranges=eps_a_telemetry_standard_ranges),
